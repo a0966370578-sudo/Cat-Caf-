@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meow Cafe | 韓系粉色貓咪下午茶</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-pink: #FFD1DC; /* 經典粉 */
+            --soft-pink: #FFF5F5;    /* 背景杏粉 */
+            --accent-rose: #B76E79;  /* 標題玫瑰金 */
+            --text-color: #5D5D5D;   /* 深灰褐色 */
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Quicksand', 'Microsoft JhengHei', sans-serif;
+            background-color: var(--soft-pink);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* 導覽列 */
+        nav {
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--accent-rose);
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            margin-left: 25px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-rose);
+        }
+
+        /* Hero 區塊 */
+        .hero {
+            height: 90vh;
+            background: linear-gradient(rgba(255, 209, 220, 0.4), rgba(255, 209, 220, 0.4)), 
+                        url('https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&q=80&w=2043') center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            color: var(--white);
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--white);
+            background: rgba(183, 110, 121, 0.6);
+            padding: 5px 20px;
+            border-radius: 50px;
+            margin-bottom: 30px;
+        }
+
+        .btn-reserve {
+            padding: 15px 40px;
+            background-color: var(--white);
+            color: var(--accent-rose);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+
+        .btn-reserve:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(255, 209, 220, 0.6);
+        }
+
+        /* 貓咪成員區塊 */
+        .section {
+            padding: 100px 10%;
+            text-align: center;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: var(--accent-rose);
+        }
+
+        .cat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .cat-card {
+            background: var(--white);
+            padding: 15px;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            transition: 0.3s;
+        }
+
+        .cat-card:hover {
+            transform: scale(1.05);
+        }
+
+        .cat-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 20px;
+            margin-bottom: 15px;
+        }
+
+        .cat-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .cat-tag {
+            display: inline-block;
+            padding: 3px 12px;
+            background: var(--soft-pink);
+            color: var(--accent-rose);
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+
+        /* 網美打卡區 */
+        .insta-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .insta-item {
+            width: 300px;
+            height: 300px;
+            background: #eee;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .insta-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* 頁尾 */
+        footer {
+            background: var(--primary-pink);
+            padding: 50px;
+            text-align: center;
+            color: white;
+        }
+
+        /* 手機版調整 */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            nav { padding: 15px 20px; }
+            .nav-links { display: none; } /* 簡化手機版 */
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="logo">MEOW CAFE</a>
+        <div class="nav-links">
+            <a href="#cats">貓咪成員</a>
+            <a href="#spots">拍照聖地</a>
+            <a href="#menu">甜點菜單</a>
+            <a href="#booking">立即預約</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>Sweetness with Cats</h1>
+        <p>在這裡，與貓咪一起虛度最浪漫的午後</p>
+        <a href="#" class="btn-reserve">預約與貓見面 ✨</a>
+    </section>
+
+    <section class="section" id="cats">
+        <h2 class="section-title">貓咪成員 🐾</h2>
+        <div class="cat-grid">
+            <div class="cat-card">
+                <img src="https://images.unsplash.com/photo-1573865526739-10659fef78a5?auto=format&fit=crop&q=80&w=500" alt="貓咪" class="cat-img">
+                <div class="cat-name">奶油 (Butter)</div>
+                <div class="cat-tag">#店長 #親人怪</div>
+            </div>
+            <div class="cat-card">
+                <img src="https://images.unsplash.com/photo-1533738363-b7f9aef128ce?auto=format&fit=crop&q=80&w=500" alt="貓咪" class="cat-img">
+                <div class="cat-name">露露 (Lulu)</div>
+                <div class="cat-tag">#傲嬌公主 #拍照專家</div>
+            </div>
+            <div class="cat-card">
+                <img src="https://images.unsplash.com/photo-1529778873920-4da4926a72c2?auto=format&fit=crop&q=80&w=500" alt="貓咪" class="cat-img">
+                <div class="cat-name">麻糬 (Mochi)</div>
+                <div class="cat-tag">#專業睡神 #貪吃鬼</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="spots" style="background-color: #fff;">
+        <h2 class="section-title">網美打卡指南 📸</h2>
+        <div class="insta-gallery">
+            <div class="insta-item"><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80&w=500" alt="咖啡廳角落"></div>
+            <div class="insta-item"><img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=500" alt="咖啡廳角落"></div>
+            <div class="insta-item"><img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&q=80&w=500" alt="貓咪拉花"></div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 MEOW CAFE KOREAN STYLE. All Rights Reserved.</p>
+        <p style="margin-top: 10px; font-size: 0.8rem;">台北市粉紅街道 123 號 | Follow us on Instagram</p>
+    </footer>
+
+</body>
+</html>
